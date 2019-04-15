@@ -3,26 +3,21 @@
     top: 0px;
     background-color: #00a087;
     height: 80px;
-
-    color: #ffffff;
-    right: 2em;
-    padding-bottom: 0px;
-    left: 2em;
-}
-
-img {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    padding-right: 2em;
+    padding-left: 2em;
 }
 
 #nav-bar .logo {
     float: left;
+    width: 80px;
+    height: 80px;
 }
 
 #nav-bar .header {
-    line-height: 75px;
+    color: #fff;
+    line-height: 80px;
     float: left;
-    padding-left: 10px;
-    font-size: 1.8em;
-    
+    margin-left: 10px;
+    font-size: 2em;
 }
