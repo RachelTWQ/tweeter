@@ -1,0 +1,34 @@
+.new-tweet {
+    background-color: #eee;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    text-align: left;
+    padding: 1em;
+}
+
+.counter {
+    float: right;
+    font-style: italic;
+    font-size: smaller;
+    margin-top: 8px
+}
+
+.new-tweet h2 {
+    content:' ';
+    display:block;
+    border-bottom:1px solid #000;
+}
+
+.new-tweet form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-tweet textarea {
+    padding: 5px;
+    border-color: #A9A9A9
+}
+
+.new-tweet input {
+    margin-top: 5px;
+}
