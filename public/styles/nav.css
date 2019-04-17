@@ -21,3 +21,19 @@
     margin-left: 10px;
 }
 
+#nav-bar > ul {
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    color: #00a087;
+    display: flex;
+    float: right;
+    list-style: none;
+    padding-left: 0.5rem;
+    width: 6rem;
+}
+
+#nav-bar > li:not(:last-child) {
+    margin-right: 0.5rem;
+}
