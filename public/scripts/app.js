@@ -67,45 +67,9 @@
 //         "created_at": 1461113796368
 //     }
 // ];
-
-//from stack overflow
-function timeDifference(current, previous) {
-
-    let msPerMinute = 60 * 1000;
-    let msPerHour = msPerMinute * 60;
-    let msPerDay = msPerHour * 24;
-    let msPerMonth = msPerDay * 30;
-    let msPerYear = msPerDay * 365;
-
-    let elapsed = current - previous;
-
-    if (elapsed < msPerMinute) {
-        return Math.round(elapsed / 1000) + ' seconds ago';
-    }
-
-    else if (elapsed < msPerHour) {
-        return Math.round(elapsed / msPerMinute) + ' minutes ago';
-    }
-
-    else if (elapsed < msPerDay) {
-        return Math.round(elapsed / msPerHour) + ' hours ago';
-    }
-
-    else if (elapsed < msPerMonth) {
-        return Math.round(elapsed / msPerDay) + ' days ago';
-    }
-
-    else if (elapsed < msPerYear) {
-        return Math.round(elapsed / msPerMonth) + ' months ago';
-    }
-
-    else {
-        return Math.round(elapsed / msPerYear) + ' years ago';
-    }
-}
+const date = moment();
 
 function createTweetElement(data) {
-    // let $tweet = $('<article>').addClass('tweet');
     let $element = $("<article>").addClass("tweet");
     $element.append("<header>");
     $element.find("header").append($('<img>').attr('src', data["user"]["avatars"]["small"]));
@@ -117,8 +81,8 @@ function createTweetElement(data) {
     $element.find("main").addClass("tweet-content");
     $element.find("main").append($("<p>").text(data["content"]["text"]));
     $element.append("<footer>");
-    let time = timeDifference(Date.now(), data["created_at"]);
-    $element.find("footer").append($("<p>").text(time));
+    let time = moment(data["created_at"]).fromNow();
+    $element.find("footer").append(`<p>${time}</p>`);
     $element.find("footer").append("<ul>");
     $element.find("ul").append("<li><i class='fas fa-flag'></i></li>");
     $element.find("ul").append("<li><i class='fas fa-retweet'></i></li>");
@@ -145,21 +109,32 @@ function loadTweets() {
 }
 
 function charCounter(){
-    let $text = $(".new-tweet textarea");
-    console.log('$text ', $text.val());
-    let remain = 140 - $text.val().length;
-    let target = $text.siblings().children()[1];
-    target.innerText = remain;
-    if (remain >= 0) {
-        target.style.color = "#244751";
-    } else {
-        target.style.color = "#FF0000";
+    // let $text = $(".new-tweet textarea");
+    // console.log('$text ', $text.val());
+    // let remain = 140 - $text.val().length;
+    // let target = $text.siblings().children()[1];
+    // target.innerText = remain;
+    // if (remain >= 0) {
+    //     target.style.color = "#244751";
+    // } else {
+    //     target.style.color = "#FF0000";
+    // }
+    let input = document.querySelector(".new-tweet textarea");
+    let spanText = document.querySelector(".counter");
+    input.oninput = function handleInput(e) {
+        let remain = 140 - e.target.value.length;
+        spanText.textContent = remain;
+        if (remain >= 0){
+            spanText.style.color = "#244751";
+        } else {
+            spanText.style.color = "red";
+        }
     }
 }
 
 $(document).ready(function () {
-    $(".new-tweet textarea").on("input", charCounter);
-
+    // $(".new-tweet textarea").on("input", charCounter);
+    charCounter();
     $( "form" ).submit(function( event ) {
         event.preventDefault();
     
@@ -170,7 +145,8 @@ $(document).ready(function () {
         if (inputLength === 0) {
             alert("Please enter your tweet.");
         } else if (inputLength > 140) {
-            alert("Your tweet looks a bit long. Let's make it short.");git   
+            alert("Your tweet looks a bit long. Let's make it short.");
+
         } else {
             $.ajax({
                 type: "POST",
