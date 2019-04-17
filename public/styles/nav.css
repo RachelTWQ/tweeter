@@ -23,7 +23,7 @@
 
 #nav-bar > ul {
     align-items: center;
-    background-color: #ffffff;
+    background-color: #edfff0;
     border: 1px solid #000000;
     border-radius: 5px;
     color: #00a087;
@@ -36,4 +36,9 @@
 
 #nav-bar > li:not(:last-child) {
     margin-right: 0.5rem;
+}
+
+#nav-bar > ul:hover{
+    background-color: #ffffff;
+    color: #000000;
 }
