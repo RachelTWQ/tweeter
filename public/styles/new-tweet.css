@@ -81,8 +81,8 @@
 }
 
 .tweet-content > p {
-    font-size: large;
     align-self: center;
+    font-size: large;
     max-width: 100%;
     overflow-wrap: break-word;
 }
