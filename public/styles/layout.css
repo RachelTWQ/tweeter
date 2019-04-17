@@ -16,29 +16,28 @@ html {
  */
 
 body {
-  margin: 0;
-  color: #244751;
   background-color: #eee;
+  color: #244751;
+  margin: 0;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- .container {
-  margin: 80px auto;
-  width: 450px;
+body > main {
   background-color: #fff;
+  margin: 80px auto 0px auto;
+  min-height: 800px;
   padding: 4em 2em;
-  height: 800px;
+  width: 450px;
 }
 
-footer {
-  position: fixed;
-  bottom: 0px;
+body > footer {
   background-color: #00a087;
-  height: 50px;
-  width: 100%;
-  text-align: center;
+  bottom: 0px;
   font-weight: bold;
+  height: 50px;
+  text-align: center;
+  width: 100%;
 }
