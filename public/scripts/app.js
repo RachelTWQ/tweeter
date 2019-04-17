@@ -108,7 +108,7 @@ function loadTweets() {
     });
 }
 
-function charCounter(){
+function charCounter() {
     // let $text = $(".new-tweet textarea");
     // console.log('$text ', $text.val());
     // let remain = 140 - $text.val().length;
@@ -124,7 +124,7 @@ function charCounter(){
     input.oninput = function handleInput(e) {
         let remain = 140 - e.target.value.length;
         spanText.textContent = remain;
-        if (remain >= 0){
+        if (remain >= 0) {
             spanText.style.color = "#244751";
         } else {
             spanText.style.color = "red";
@@ -135,11 +135,11 @@ function charCounter(){
 $(document).ready(function () {
     // $(".new-tweet textarea").on("input", charCounter);
     charCounter();
-    $( "form" ).submit(function( event ) {
+    $("form").submit(function (event) {
         event.preventDefault();
-    
+
         const inputContent = $(this).serialize();
-        
+
         const inputLength = $("#tweetInput").val().length;
 
         if (inputLength === 0) {
@@ -154,16 +154,19 @@ $(document).ready(function () {
                 data: inputContent,
                 dataType: "string",
                 complete: () => {
-                    $( "textarea", this).val("");
+                    $("textarea", this).val("");
                     charCounter();
-                    loadTweets();    
+                    loadTweets();
                 }
             });
         }
-});
-
-loadTweets()
-
+    });
+    loadTweets()
+    
+    let $button = $("#nav-bar > ul").get(0);
+    $button.addEventListener("click", function(){
+        $(".new-tweet").slideToggle();
+    })
 
 });
 
