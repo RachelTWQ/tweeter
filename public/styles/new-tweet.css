@@ -76,13 +76,15 @@
 
 .tweet > main {
     padding: 0.5em;
-    font-size: large;
-    align-self: center;
-}
-
-.tweet .tweet-content {
     min-height: 80px;
     display: flex;
+}
+
+.tweet-content > p {
+    font-size: large;
+    align-self: center;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .tweet > footer {
