@@ -34,8 +34,8 @@
     width: 6rem;
 }
 
-#nav-bar > li:not(:last-child) {
-    margin-right: 0.5rem;
+#nav-bar > ul > li {
+    margin-right: 0.2rem;
 }
 
 #nav-bar > ul:hover{
