@@ -36,7 +36,7 @@
 
 .new-tweet > .isa_error {
     color: red;
-    display: none;
+    display: flex;
 }
 
 .isa_error > i {
