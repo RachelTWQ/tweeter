@@ -162,10 +162,14 @@ $(document).ready(function () {
         }
     });
     loadTweets()
-    
+    let isCollapsed = false
     let $button = $("#nav-bar > ul").get(0);
     $button.addEventListener("click", function(){
         $(".new-tweet").slideToggle();
+        if(isCollapsed) {
+            $("#tweetInput").focus()
+        }
+        isCollapsed = !isCollapsed
     })
 
 });
