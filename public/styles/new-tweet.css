@@ -1,37 +1,38 @@
 .new-tweet {
-    background-color: #eee;
+    background-color: #eeeeee;
     border: 1px solid #D3D3D3;
     border-radius: 5px;
+    display: none;
+    padding: 1rem;
     text-align: left;
-    padding: 1em;
 }
 
 .counter {
     float: right;
     font-style: italic;
     font-size: smaller;
-    margin-top: 8px
+    margin-top: 0.5rem;
 }
 
 .new-tweet h2 {
     content:' ';
     display:block;
-    border-bottom:1px solid #000;
+    border-bottom:1px solid #000000;
 }
 
 .new-tweet form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .new-tweet textarea {
-    padding: 5px;
-    border-color: #A9A9A9
+    border-color: #A9A9A9;
+    padding: 0.5rem;
 }
 
 .new-tweet input {
-    margin-top: 5px;
+    margin-top: 0.5rem;
 }
 
 .new-tweet > .isa_error {
@@ -48,7 +49,7 @@
 }
 
 #tweet-container {
-    margin-top: 2em;
+    margin-top: 2rem;
 }
 
 .tweet {
@@ -79,17 +80,17 @@
 
 .tweet .header-container h2 {
     margin: 0;
-    max-width: 10em;
+    max-width: 10rem;
     overflow-wrap: break-word;
 }
 
 .tweet .header-container span {
-    max-width: 10em;
+    max-width: 10rem;
     overflow-wrap: break-word;
 }
 
 .tweet > main {
-    padding: 0.5em;
+    padding: 0.5rem;
     min-height: 80px;
     display: flex;
 }
@@ -104,7 +105,7 @@
 .tweet > footer {
     align-items: center;
     border-top: 1px solid #D3D3D3;
-    bottom: 0px;
+    bottom: 0;
     display: flex;
     height: 50px;
     justify-content: space-between;
