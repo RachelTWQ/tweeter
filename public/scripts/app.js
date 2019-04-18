@@ -109,32 +109,33 @@ function loadTweets() {
 }
 
 function charCounter() {
-    // let $text = $(".new-tweet textarea");
-    // console.log('$text ', $text.val());
-    // let remain = 140 - $text.val().length;
-    // let target = $text.siblings().children()[1];
-    // target.innerText = remain;
-    // if (remain >= 0) {
-    //     target.style.color = "#244751";
-    // } else {
-    //     target.style.color = "#FF0000";
-    // }
-    let input = document.querySelector(".new-tweet textarea");
-    let spanText = document.querySelector(".counter");
-    input.oninput = function handleInput(e) {
-        let remain = 140 - e.target.value.length;
-        spanText.textContent = remain;
-        if (remain >= 0) {
-            spanText.style.color = "#244751";
-        } else {
-            spanText.style.color = "red";
-        }
+    let $text = $(".new-tweet textarea");
+    console.log('$text ', $text.val());
+    let remain = 140 - $text.val().length;
+    let target = $text.siblings().children()[1];
+    target.innerText = remain;
+    if (remain >= 0) {
+        target.style.color = "#244751";
+    } else {
+        target.style.color = "#FF0000";
     }
+    // let input = document.querySelector(".new-tweet textarea");
+    // let spanText = document.querySelector(".counter");
+    // input.oninput = function handleInput(e) {
+    //     let remain = 140 - e.target.value.length;
+    //     spanText.textContent = remain;
+    //     if (remain >= 0) {
+    //         spanText.style.color = "#244751";
+    //     } else {
+    //         spanText.style.color = "red";
+    //     }
+    // }
 }
 
 $(document).ready(function () {
-    // $(".new-tweet textarea").on("input", charCounter);
-    charCounter();
+    $(".new-tweet textarea").on("input", charCounter);
+    // charCounter();
+
     $("form").submit(function (event) {
         event.preventDefault();
 
@@ -143,10 +144,17 @@ $(document).ready(function () {
         const inputLength = $("#tweetInput").val().length;
 
         if (inputLength === 0) {
-            alert("Please enter your tweet.");
+            $(".new-tweet").append("<div class='isa_error'><i class='fas fa-exclamation-circle'></i><p>Please enter your tweet.</p></div>");
+            let $focus = $("#tweetInput").get(0);
+            $focus.addEventListener("focus", function(){
+                $(".isa_error").empty();
+            })
         } else if (inputLength > 140) {
-            alert("Your tweet looks a bit long. Let's make it short.");
-
+            $(".new-tweet").append("<div class='isa_error'><i class='fas fa-exclamation-circle'></i><p>Your tweet looks a bit long. Let's make it short.</p></div>");
+            let $focus = $("#tweetInput").get(0);
+            $focus.addEventListener("focus", function(){
+                $(".isa_error").empty();
+            })
         } else {
             $.ajax({
                 type: "POST",
