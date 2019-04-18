@@ -155,7 +155,7 @@ $(document).ready(function () {
             // //$(".new-tweet").append("<div class='isa_error'><i class='fas fa-exclamation-circle'></i><p>Your tweet looks a bit long. Let's make it short.</p></div>");
             // let $focus = $("#tweetInput").get(0);
             // $focus.addEventListener("focus", function(){
-            //     $(".isa_error").empty();
+            //     $(".isa_error").remove();
             // })
         } else {
             $.ajax({
