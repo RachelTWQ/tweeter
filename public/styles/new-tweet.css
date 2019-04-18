@@ -22,6 +22,7 @@
 .new-tweet form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0.2rem;
 }
 
 .new-tweet textarea {
@@ -31,6 +32,19 @@
 
 .new-tweet input {
     margin-top: 5px;
+}
+
+.new-tweet > .isa_error {
+    color: red;
+    display: flex;
+}
+
+.isa_error > i {
+    margin-right: 0.2rem;
+}
+
+.isa_error > p {
+    margin: 0;
 }
 
 #tweet-container {
@@ -126,3 +140,8 @@
     border: solid 1px #A9A9A9;
     border-radius: 5px;
 }
+
+/* min-width
+overflow: hidden;
+white-space: no wrap;
+text-overflow: ellipsis */
