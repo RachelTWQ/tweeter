@@ -110,9 +110,10 @@ function loadTweets() {
 
 function charCounter() {
     let $text = $(".new-tweet textarea");
-    console.log('$text ', $text.val());
+    // console.log('$text ', $text.val());
     let remain = 140 - $text.val().length;
-    let target = $text.siblings().children()[1];
+    // let target = $text.siblings().children()[1];
+    let target = $(".counter").get(0);
     target.innerText = remain;
     if (remain >= 0) {
         target.style.color = "#244751";
@@ -147,16 +148,18 @@ $(document).ready(function () {
         const inputLength = $("#tweetInput").val().length;
 
         if (inputLength === 0) {
-            $(".isa_error").append("<i class='fas fa-exclamation-circle'></i><p class ='error_msg'>Please enter something.</p>").css("display", "flex").slideDown(1);
+            $(".isa_error").append("<i class='fas fa-exclamation-circle'></i><p class ='error_msg'>Please enter a tweet.</p>").slideDown(100);
 
         } else if (inputLength > 140) {
-            $(".isa_error").append("<i class='fas fa-exclamation-circle'></i><p class ='error_msg'>Your tweet looks a bit long. Let's make it short.</p>").css("display", "flex").slideDown(1);
+            $(".isa_error").append("<i class='fas fa-exclamation-circle'></i><p class ='error_msg'>Your tweet looks a bit long. Let's make it short.</p>").slideDown(100);
 
-            // //$(".new-tweet").append("<div class='isa_error'><i class='fas fa-exclamation-circle'></i><p>Your tweet looks a bit long. Let's make it short.</p></div>");
+            // $(".new-tweet").append("<div class='isa_error'><i class='fas fa-exclamation-circle'></i><p>Your tweet looks a bit long. Let's make it short.</p></div>");
+            // $(".isa_error").slideDown();
             // let $focus = $("#tweetInput").get(0);
             // $focus.addEventListener("focus", function(){
-            //     $(".isa_error").remove();
+            //     $(".isa_error").slideUp();
             // })
+
         } else {
             $.ajax({
                 type: "POST",
