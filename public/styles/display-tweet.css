@@ -1,11 +1,7 @@
-#tweet-container {
-    margin-top: 2rem;
-}
-
 .tweet {
     border: solid 1px #D3D3D3;
     border-radius: 5px;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .tweet > header {
@@ -36,7 +32,9 @@
 
 .tweet .header-container span {
     max-width: 10rem;
-    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .tweet > main {
