@@ -13,5 +13,20 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Dependencies
 
+- body - parser
+- change
 - Express
+- md5
+- mongodb 
 - Node 5.10.x or above
+
+## Screenshot
+!["Screenshot of tweet compose box"](https://github.com/RachelTWQ/tweeter/blob/master/docs/tweet-box.png)
+
+!["Screenshot of tweets"](https://github.com/RachelTWQ/tweeter/blob/master/docs/tweet.png)
+
+!["Screenshot of tweet hover"](https://github.com/RachelTWQ/tweeter/blob/master/docs/tweet-hover.png)
+
+!["Screenshot error message of empty tweet"](https://github.com/RachelTWQ/tweeter/blob/master/docs/empty-error-msg.png)
+
+!["Screenshot error message of tweet over 140 characters"](https://github.com/RachelTWQ/tweeter/blob/master/docs/long-tweet-error-msg.png)
