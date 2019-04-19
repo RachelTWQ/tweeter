@@ -73,7 +73,7 @@ $(document).ready(function () {
 
         const inputContent = $(this).serialize();
 
-        const inputLength = $("#tweetInput").val().length;
+        const inputLength = $("#tweetInput").val().trim().length;
 
         if (inputLength === 0) {
             $(".isa_error").append("<i class='fas fa-exclamation-circle'></i><p>Would you like to share something?</p>").slideDown(100);
