@@ -1,0 +1,93 @@
+#tweet-container {
+    margin-top: 2rem;
+}
+
+.tweet {
+    border: solid 1px #D3D3D3;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.tweet > header {
+    background-color: #eee;
+    display: flex;
+    opacity: 0.5;
+    padding: 0.5rem;
+}
+
+.tweet > header img {
+    height: 50px;
+    margin-right: 0.5rem;
+    width: 50px;
+}
+
+.tweet .header-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tweet .header-container h2 {
+    margin: 0;
+    max-width: 10rem;
+    overflow-wrap: break-word;
+}
+
+.tweet .header-container span {
+    max-width: 10rem;
+    overflow-wrap: break-word;
+}
+
+.tweet > main {
+    padding: 0.5rem;
+    min-height: 80px;
+    display: flex;
+}
+
+.tweet-content > p {
+    align-self: center;
+    font-size: large;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+.tweet > footer {
+    align-items: center;
+    border-top: 1px solid #D3D3D3;
+    bottom: 0;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.tweet > footer p {
+    font-size: smaller;
+}
+
+.tweet > footer ul {
+    color: #00a087;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    visibility: hidden;
+}
+
+.tweet > footer li:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+.tweet:hover > footer ul {
+    visibility: visible;
+}
+
+.tweet:hover header {
+    opacity: 1.0;
+}
+
+.tweet:hover {
+    border: solid 1px #A9A9A9;
+    border-radius: 5px;
+}
