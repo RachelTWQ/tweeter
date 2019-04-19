@@ -27,15 +27,15 @@ body {
 
 body > main {
   background-color: #fff;
-  margin: 80px auto 0px auto;
+  margin: 80px auto 0 auto;
   min-height: 800px;
-  padding: 4em 2em;
+  padding: 4rem 2rem;
   width: 450px;
 }
 
 body > footer {
   background-color: #00a087;
-  bottom: 0px;
+  bottom: 0;
   font-weight: bold;
   height: 50px;
   text-align: center;
