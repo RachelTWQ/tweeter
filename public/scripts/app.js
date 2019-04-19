@@ -68,7 +68,7 @@ $(document).ready(function () {
     $("form").submit(function (event) {
         event.preventDefault();
         $(".isa_error").slideUp(1);
-        $(".error_msg").remove();
+        $(".isa_error > p").remove();
         $(".isa_error > i").remove();
 
         const inputContent = $(this).serialize();
@@ -76,10 +76,10 @@ $(document).ready(function () {
         const inputLength = $("#tweetInput").val().length;
 
         if (inputLength === 0) {
-            $(".isa_error").append("<i class='fas fa-exclamation-circle'></i><p class ='error_msg'>Please enter a tweet.</p>").slideDown(100);
+            $(".isa_error").append("<i class='fas fa-exclamation-circle'></i><p>Would you like to share something?</p>").slideDown(100);
 
         } else if (inputLength > 140) {
-            $(".isa_error").append("<i class='fas fa-exclamation-circle'></i><p class ='error_msg'>Your tweet looks a bit long. Let's make it short.</p>").slideDown(100);
+            $(".isa_error").append("<i class='fas fa-exclamation-circle'></i><p>Your tweet looks a bit long. Let's make it short.</p>").slideDown(100);
 
         } else {
             $.ajax({
