@@ -1,24 +1,29 @@
 #nav-bar {
+    align-items: center;
     background-color: #00a087;
+    display: flex;
     height: 80px;
+    justify-content: space-between;
     padding: 0 2rem;
     position: fixed;
-    top: 0px;
+    top: 0;
     width: 100%;
 }
 
+#nav-bar > div {
+    display: flex;
+}
+
 #nav-bar .logo {
-    float: left;
     height: 80px;
     width: 80px;
 }
 
 #nav-bar .header {
     color: #fff;
-    float: left;
     font-size: 2rem;
     line-height: 80px;
-    margin-left: 10px;
+    margin: 0 10px;
 }
 
 #nav-bar > ul {
@@ -28,7 +33,6 @@
     border-radius: 5px;
     color: #00a087;
     display: flex;
-    float: right;
     list-style: none;
     padding-left: 0.5rem;
     width: 6rem;
