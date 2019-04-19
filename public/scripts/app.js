@@ -6,6 +6,7 @@
 
 const date = moment();
 
+// Create new tweets structure
 function createTweetElement(data) {
     let $element = $("<article>").addClass("tweet");
     $element.append("<header>");
@@ -27,13 +28,15 @@ function createTweetElement(data) {
     return $element;
 }
 
+// Render new tweets
 function renderTweets(tweets) {
-    $("#tweet-container").empty(); //empty the dummy tweet from html;
-    for (let info of tweets) {
-        $("#tweet-container").prepend(createTweetElement(info));
+    $("#tweet-container").empty();
+    for (let tweet of tweets) {
+        $("#tweet-container").prepend(createTweetElement(tweet));
     }
 }
 
+// Load all the tweets
 function loadTweets() {
     $.ajax({
         type: "GET",
@@ -45,6 +48,7 @@ function loadTweets() {
     });
 }
 
+//Count length of tweet
 function charCounter() {
     let $text = $(".new-tweet textarea");
     let remain = 140 - $text.val().length;
@@ -60,6 +64,7 @@ function charCounter() {
 $(document).ready(function () {
     $(".new-tweet textarea").on("input", charCounter);
 
+    // Submit new tweet
     $("form").submit(function (event) {
         event.preventDefault();
         $(".isa_error").slideUp(1);
@@ -90,8 +95,10 @@ $(document).ready(function () {
             });
         }
     });
+
     loadTweets();
     
+    // Toggle compose box
     let isCollapsed = true;
     let $button = $("#nav-bar > ul").get(0);
     $button.addEventListener("click", function(){
