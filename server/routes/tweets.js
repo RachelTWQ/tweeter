@@ -42,6 +42,20 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.put("/", function(req, res) {
+    console.log("help me")
+    
+    DataHelpers.updateTweet(req.body.id, {"like": req.body.like}, (err) => {
+      if (err) {
+        console.log("Something wrong with the PUT request.")
+      }
+      else {
+        res.status(201).send();
+      }
+    }) 
+
+  });
+
   return tweetsRoutes;
 
 }
