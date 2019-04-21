@@ -25,13 +25,29 @@ function createTweetElement(data) {
     $element.find("ul").append("<li><i class='fas fa-flag'></i></li>");
     $element.find("ul").append("<li><i class='fas fa-retweet'></i></li>");
     // $element.find("ul").append("<li><i class='fas fa-heart'></i></li>");
+    
     let like;
     if (data['like'] !== undefined) {
         like = data['like'];
     } else {
         like = 0;
     }
-    $element.find("ul").append(`<li class='like' id='${data['_id']}'><i class='fas fa-heart' ></i><span>${like}</span></li>`);
+
+    let $like = $(`<li id='${data['_id']}'><i class='fas fa-heart' ></i><span>${like}</span></li>`);
+    $like.click(function(){
+        console.log('clciked?');
+        $.ajax({
+            type: "PUT",
+            url: "/tweets/",
+            data: {"id": data['_id'], "like": like + 1},
+            dataType: "object",
+            completed: (() => {
+                loadTweets();
+            })
+        })
+    })
+    $element.find("ul").append($like);
+
     return $element;
 }
 
@@ -116,7 +132,6 @@ $(document).ready(function () {
         }
         isCollapsed = !isCollapsed;
     })
-
 
 });
 
