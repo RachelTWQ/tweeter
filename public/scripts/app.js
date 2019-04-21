@@ -24,7 +24,14 @@ function createTweetElement(data) {
     $element.find("footer").append("<ul>");
     $element.find("ul").append("<li><i class='fas fa-flag'></i></li>");
     $element.find("ul").append("<li><i class='fas fa-retweet'></i></li>");
-    $element.find("ul").append("<li><i class='fas fa-heart'></i></li>");
+    // $element.find("ul").append("<li><i class='fas fa-heart'></i></li>");
+    let like;
+    if (data['like'] !== undefined) {
+        like = data['like'];
+    } else {
+        like = 0;
+    }
+    $element.find("ul").append(`<li class='like' id='${data['_id']}'><i class='fas fa-heart' ></i><span>${like}</span></li>`);
     return $element;
 }
 
@@ -60,6 +67,7 @@ function charCounter() {
         target.style.color = "#FF0000";
     }
 }
+
 
 $(document).ready(function () {
     $(".new-tweet textarea").on("input", charCounter);
@@ -108,6 +116,7 @@ $(document).ready(function () {
         }
         isCollapsed = !isCollapsed;
     })
+
 
 });
 
