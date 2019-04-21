@@ -1,5 +1,7 @@
 "use strict";
 
+const Mongo = require("mongodb");
+
 // Simulates the kind of delay we see with network or filesystem operations
 const simulateDelay = require("./util/simulate-delay");
 
@@ -28,7 +30,18 @@ module.exports = function makeDataHelpers(db) {
             callback(null, tweets.sort(sortNewestFirst));
         });
       });
-    }
+    },
 
+    // Update tweets in db
+    updateTweet: function(id, update, callback) {
+      console.log("id from data-helper ", id)
+      console.log("update from data-helper ", update)
+      simulateDelay(() => {
+        console.log("saving....")
+        db.collection("tweets").updateOne({"_id": Mongo.ObjectId(id)}, { $set: update }, {upsert: true});
+        console.log("saved")
+        callback(null, true);
+      });
+    }
   };
 }
